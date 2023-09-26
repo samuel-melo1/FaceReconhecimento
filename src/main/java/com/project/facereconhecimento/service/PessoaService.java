@@ -3,6 +3,7 @@ package com.project.facereconhecimento.service;
 import com.project.facereconhecimento.model.Pessoa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,14 +43,18 @@ public class PessoaService {
         return false;
     }
 
-    public Page<Pessoa> findByNome(Integer pageNumber, Integer pageSize, String sort) {
+    public Page<Pessoa> findByNome(Integer pageNumber, Integer pageSize) {
         PageRequest pageable = null;
-        if (sort != null) {
-            pageable = PageRequest.of(pageNumber, pageSize, Sort.Direction.ASC, sort);
-        } else {
-            pageable = PageRequest.of(pageNumber, pageSize);
-        }
+  
+        pageable = PageRequest.of(pageNumber, pageSize);
+        pageNumber = pageNumber == null ? 1 : pageNumber; 
+        pageSize = pageSize == null ? 10 : pageSize; 
         return repository.findAll(pageable);
+    }
+
+    public Long searchRegister(){
+        long count = repository.count();
+		return count;
     }
 
 }

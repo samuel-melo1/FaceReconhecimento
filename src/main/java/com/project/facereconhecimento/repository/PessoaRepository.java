@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
     
-Page<Pessoa> findByNome(Integer pageNumber, Pageable pageable , String sort);
+Page<Pessoa> findByNome(Integer pageNumber, Pageable pageable);
+
+long count();
 
 }

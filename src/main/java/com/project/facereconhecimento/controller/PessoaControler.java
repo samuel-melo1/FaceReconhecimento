@@ -9,6 +9,8 @@ import com.project.facereconhecimento.dto.PessoaDTO;
 import jakarta.validation.Valid;
 import com.project.facereconhecimento.model.Pessoa;
 import com.project.facereconhecimento.service.PessoaService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,14 +41,13 @@ public class PessoaControler {
         Optional<Pessoa> optionalPessoa = service.getPessoaById(id);
         if(!optionalPessoa.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pessoa não encontrada!");
-        }
+        }   
         return ResponseEntity.status(HttpStatus.OK).body(optionalPessoa.get());
     }
 
-
-    @GetMapping("/listagem/{pageNumber}/{pageSize}")
-    public List <Pessoa> getPessoa(@PathVariable Integer pageNumber, @PathVariable Integer pageSize) {
-        Page <Pessoa> data = service.findByNome(pageNumber, pageSize, null);
+    @GetMapping("/listagem")
+    public List <Pessoa> getPessoa(@RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
+        Page <Pessoa> data = service.findByNome(pageNumber, pageSize);
         return data.getContent();
   }
 }
