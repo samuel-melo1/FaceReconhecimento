@@ -45,10 +45,10 @@ public class PessoaService {
 
     public Page<Pessoa> findByNome(Integer pageNumber, Integer pageSize) {
         PageRequest pageable = null;
-  
+        //pageNumber = pageNumber == null? 1 : pageNumber; 
+        pageNumber = pageNumber < 0? 0 : pageNumber; 
+       // pageSize = pageSize == null ? 10 : pageSize; 
         pageable = PageRequest.of(pageNumber, pageSize);
-        pageNumber = pageNumber == null ? 1 : pageNumber; 
-        pageSize = pageSize == null ? 10 : pageSize; 
         return repository.findAll(pageable);
     }
 
