@@ -19,6 +19,7 @@ import java.util.Optional;
 public class PessoaControler {
 
     private PessoaService service;
+    private Long totalRegister;
 
     public PessoaControler(PessoaService service){
         this.service = service;
@@ -46,8 +47,8 @@ public class PessoaControler {
     }
 
     @GetMapping("/listagem")
-    public List <Pessoa> getPessoa(@RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
+    public Page<Pessoa> getPessoa(@RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
         Page <Pessoa> data = service.findByNome(pageNumber, pageSize);
-        return data.getContent();
+        return data;
   }
 }

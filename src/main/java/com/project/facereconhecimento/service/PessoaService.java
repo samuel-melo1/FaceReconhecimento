@@ -45,16 +45,9 @@ public class PessoaService {
 
     public Page<Pessoa> findByNome(Integer pageNumber, Integer pageSize) {
         PageRequest pageable = null;
-        //pageNumber = pageNumber == null? 1 : pageNumber; 
-        pageNumber = pageNumber < 0? 0 : pageNumber; 
-       // pageSize = pageSize == null ? 10 : pageSize; 
         pageable = PageRequest.of(pageNumber, pageSize);
         return repository.findAll(pageable);
     }
 
-    public Long searchRegister(){
-        long count = repository.count();
-		return count;
-    }
 
 }

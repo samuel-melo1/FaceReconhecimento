@@ -10,11 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import com.project.facereconhecimento.controller.PessoaControler;
-import javafx.application.Application;
+//import javafx.application.Application;
 
 
 @SpringBootTest
-@ContextConfiguration(classes=Application.class)
+//@ContextConfiguration(classes=Application.class)
 @WebMvcTest()
 @DataJpaTest
 @ExtendWith(MockitoExtension.class)
