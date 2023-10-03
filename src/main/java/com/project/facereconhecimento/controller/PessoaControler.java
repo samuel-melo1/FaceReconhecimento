@@ -9,8 +9,6 @@ import com.project.facereconhecimento.dto.PessoaDTO;
 import jakarta.validation.Valid;
 import com.project.facereconhecimento.model.Pessoa;
 import com.project.facereconhecimento.service.PessoaService;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
