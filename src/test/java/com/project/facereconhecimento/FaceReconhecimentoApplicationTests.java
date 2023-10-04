@@ -42,15 +42,21 @@ class FaceReconhecimentoApplicationTests {
 
     @Test
     public void cadastrarTest() throws Exception {
-        // mockMvc.perform(MockMvcRequestBuilders
-        //         .post("/api/pessoa/create")
-        //         .contentType(MediaType.APPLICATION_JSON)
-        //         .content("{\"id_pesssoa\": \"100\" \"ativo\": \"1\", \"cpf\": \"12256131912\": \"data_nascimento\": \"2004-12-20\",\"nome\": \"felipe\",\"tipo\": \"1\"}")
-        //         .accept(MediaType.APPLICATION_JSON))
-        //         .andExpect(MockMvcResultMatchers.status().is(200));
+         mockMvc.perform(MockMvcRequestBuilders
+                .post("/api/pessoa/create")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\n" +
+                        "\t\"id_pessoa\": 367,\n" +
+                        "\t\"nome\": \"matematica\",\n" +
+                        "\t\"cpf\": \"12256131912\",\n" +
+                        "\t\"data_nascimento\": null,\n" +
+                        "\t\"tipo\": \"alunos\",\n" +
+                        "\t\"ativo\": true,\n" +
+                        "\t\"log\": null\n" +
+                        "}")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().is(200));
 
     }
-
-
 
 }
