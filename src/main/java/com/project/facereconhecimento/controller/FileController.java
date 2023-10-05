@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping("/api/files")
 public class FileController {
 
     private static final Logger logger = LoggerFactory.getLogger(FileController.class);
