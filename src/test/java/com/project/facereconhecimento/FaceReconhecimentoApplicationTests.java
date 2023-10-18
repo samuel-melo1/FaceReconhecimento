@@ -1,8 +1,8 @@
 package com.project.facereconhecimento;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.aspectj.lang.annotation.Before;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,9 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import com.project.facereconhecimento.controller.PessoaControler;
 import com.project.facereconhecimento.repository.PessoaRepository;
-
 import jakarta.validation.constraints.AssertTrue;
-
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -74,7 +72,6 @@ class FaceReconhecimentoApplicationTests {
                .contentType(MediaType.APPLICATION_JSON))
                .andExpect(MockMvcResultMatchers.status().is(200));
 
-    
     }
 
         @Test
@@ -84,7 +81,7 @@ class FaceReconhecimentoApplicationTests {
                .get("/api/pessoa/busca/1")
                .contentType(MediaType.APPLICATION_JSON))
                .andExpect(MockMvcResultMatchers.status().is(200));
-         
+        
     }
 
 }
