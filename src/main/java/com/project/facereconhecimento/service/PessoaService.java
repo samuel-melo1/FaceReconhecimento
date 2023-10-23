@@ -31,6 +31,10 @@ public class PessoaService {
         return repository.findById(id);
     }
 
+
+    public Long getIdPessoaByCpf(String cpf) {
+        return repository.getIdPessoaByCpf(cpf);
+    }
     @Transactional
     public boolean excluirUsuario(Long id_pessoa) {
         Optional<Pessoa> optionalPessoa = repository.findById(id_pessoa);
